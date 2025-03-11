@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Length Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Length Converter</h1>
+        <form method="POST">
+            <input type="number" step="any" name="value" required placeholder="Enter value">
+            <select name="from_unit" required>
+                <option value="millimeter">Millimeter</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            </select>
+            <span>to</span>
+            <select name="to_unit" required>
+                <option value="millimeter">Millimeter</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        {% if result is not none %}
+        <div class="result">
+            Result: {{ result }}
+        </div>
+        {% endif %}
+        <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+    </div>
+</body>
+</html>

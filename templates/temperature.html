@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <form method="POST">
+            <input type="number" step="any" name="value" required placeholder="Enter value">
+            <select name="from_unit" required>
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            <span>to</span>
+            <select name="to_unit" required>
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        {% if result is not none %}
+        <div class="result">
+            Result: {{ result }}
+        </div>
+        {% endif %}
+        <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+    </div>
+</body>
+</html>
